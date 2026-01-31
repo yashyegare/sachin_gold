@@ -388,6 +388,61 @@
     <span>Chat with us</span>
 </a>
 
+<!-- /* Dynamic rate card  */ -->
+
+
+
+<script>
+async function updateLiveRates() {
+  // 1. REPLACE 'YOUR_SHEETDB_ID' with the ID from your SheetDB dashboard
+  // Example: "https://sheetdb.io/api/v1/abcd1234efgh"
+  const apiURL = "https://sheetdb.io/api/v1/nzf0wj47orzak";
+
+  try {
+    const response = await fetch(`${apiURL}?cache_bust=${new Date().getTime()}`
+  );
+    
+    if (!response.ok) {
+        throw new Error(`HTTP Error: ${response.status} - Check if your API ID is correct.`);
+    }
+
+    const data = await response.json();
+
+    // SheetDB returns an array [{}, {}]. We verify it's an array before using .find()
+    if (Array.isArray(data)) {
+        const normalRow = data.find(item => item.name === 'normal');
+        const highProRow = data.find(item => item.name === 'highpro');
+
+        if (normalRow && normalRow.price) {
+          document.getElementById('rate-normal').innerText = "₹ " + parseInt(normalRow.price).toLocaleString('en-IN');
+        }
+
+        if (highProRow && highProRow.price) {
+          document.getElementById('rate-highpro').innerText = "₹ " + parseInt(highProRow.price).toLocaleString('en-IN');
+        }
+
+        // Updating the timestamp
+        if (normalRow && normalRow.time) {
+            const date = new Date(normalRow.time);
+            const timeStr = date.toLocaleDateString() + " | " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            // Look for a span/div with this ID to show the time
+            const timeElement = document.getElementById('last-updated-time');
+            if(timeElement) timeElement.innerText = "Updated: " + timeStr;
+        }
+    }
+  } catch (error) {
+    console.error("Sachin Gold Rate Sync Error:", error.message);
+    // If it fails, your HTML stays as is (showing your default static rates)
+  }
+}
+
+document.addEventListener('DOMContentLoaded', updateLiveRates);
+</script>
+
+
+
+
 </body>
 
 </html>
