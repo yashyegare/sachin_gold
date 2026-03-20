@@ -9,7 +9,7 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon_sachingold.png" rel="icon">
+  <link href="assets/img/sachin_gold_logo2.jpg" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -38,79 +38,191 @@
 
 <body class="contact-page">
 
-  <header id="header" class="header d-flex align-items-center position-relative">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+   <header id="header" class="header d-flex align-items-center position-relative">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/sachin_gold_logo.png" alt="brand_logo" style="height: 100px; width: auto;">
-        <!-- <h1 class="sitename">AgriCulture</h1>  -->
-      </a>
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="assets/img/sachin_gold_logo.png" alt="brand_logo" style="height: 100px; width: auto;">
+      <img src="assets/img/sachin_gold_logo2.jpg" alt="brand_logo" style="height: 45px; width: auto; margin-right: 15px;">
+    </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Our Services</a></li>
-          <!-- <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="blog.html">Blog</a></li> -->
-          <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a> -->
-            <ul>
-              <!-- <li><a href="#">Dropdown 1</a></li> -->
-              <!-- <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li> -->
-              <!-- <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li> -->
-            </ul>
-          </li>
-          <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        
+        <li class="dropdown"><a href="services.html" class="active"><span>Our Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="services.html">Overview</a></li>
+            
+            <li>
+              <a href="commodity-trading.html" target="_blank" rel="noopener noreferrer">
+                Agro Commodity Trading <i class="bi bi-box-arrow-up-right ms-2" style="font-size: 0.75rem; opacity: 0.6;"></i>
+              </a>
+            </li>
+            <li>
+              <a href="pulses-processing.html" target="_blank" rel="noopener noreferrer">
+                Pulses & Gram Flour Unit <i class="bi bi-box-arrow-up-right ms-2" style="font-size: 0.75rem; opacity: 0.6;"></i>
+              </a>
+            </li>
+            <li>
+              <a href="oil-extraction.html" target="_blank" rel="noopener noreferrer">
+                Oil Seed Extraction <i class="bi bi-box-arrow-up-right ms-2" style="font-size: 0.75rem; opacity: 0.6;"></i>
+              </a>
+            </li>
+            <li>
+              <a href="cold-storage.html" target="_blank" rel="noopener noreferrer">
+                Cold Storage & Warehousing <i class="bi bi-box-arrow-up-right ms-2" style="font-size: 0.75rem; opacity: 0.6;"></i>
+              </a>
+            </li>
+            <li>
+              <a href="logistics.html" target="_blank" rel="noopener noreferrer">
+                Logistics & Transportation <i class="bi bi-box-arrow-up-right ms-2" style="font-size: 0.75rem; opacity: 0.6;"></i>
+              </a>
+            </li>
 
-    </div>
-  </header>
+          </ul>
+        </li>
 
+        <li><a href="rate.html">Rates</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
 
+  </div>
+</header>
+
+<!-- // Blink animation for last updated -->
+
+<style>
+  /* Blinking dot animation */
+  @keyframes blink-animation {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+  }
+  .blink {
+    animation: blink-animation 1.5s infinite;
+  }
+
+  /* Scrolling Ticker Animations & Styling */
+  .ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: #1a1a1a;
+    border-top: 3px solid #d4af37;
+    border-bottom: 1px solid #d4af37;
+    padding: 12px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .ticker-wrap:hover {
+    background: #262626 !important; /* Lightens on hover */
+  }
+  .ticker-track {
+    display: inline-flex;
+    white-space: nowrap;
+    /* Adjust the '35s' below to make it scroll faster or slower */
+    animation: ticker-scroll 35s linear infinite; 
+    align-items: center;
+  }
+  .ticker-track:hover {
+    animation-play-state: paused; /* Pauses the scrolling when hovered! */
+  }
+  @keyframes ticker-scroll {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+  }
   
-<div class="rate-card-bar" style="background: #1a1a1a; border-top: 3px solid #d4af37; border-bottom: 1px solid #d4af37; padding: 12px 0; overflow: hidden;">
-  <div class="container">
-    <div class="d-flex align-items-center justify-content-center flex-wrap" style="color: #fff; font-family: 'Marcellus', serif;">
-      
-      <div class="rate-label me-4" style="font-weight: 700; color: #d4af37; text-transform: uppercase; letter-spacing: 1px;">
-        <i class="bi bi-graph-up-arrow me-2"></i>Daily Rate Card:
-      </div>
+  .ticker-item {
+    display: inline-flex;
+    align-items: baseline;
+    padding: 0 25px;
+    border-right: 1px solid rgba(212, 175, 55, 0.4);
+  }
+  .ticker-item:last-child {
+    border-right: none;
+  }
+</style>
 
-      <div class="rate-item me-5" style="border-right: 1px solid rgba(212, 175, 55, 0.3); padding-right: 20px;">
-        <span style="font-weight: 400; font-size: 0.9rem; opacity: 0.9;">SOYA DOC (Normal):</span> 
-        <span id="rate-normal" style="font-weight: 700; color: #fff; font-size: 1.1rem; margin-left: 8px;">₹ 47,000</span>
-        <small style="font-size: 0.7rem; color: #d4af37; margin-left: 4px;">/ MT + GST & Freight</small>
-      </div>
-
-      <div class="rate-item">
-        <span style="font-weight: 400; font-size: 0.9rem; opacity: 0.9;">SOYA DOC (High Pro):</span> 
-        <span id="rate-highpro" style="font-weight: 700; color: #fff; font-size: 1.1rem; margin-left: 8px;">₹ 51,200</span>
-        <small style="font-size: 0.7rem; color: #d4af37; margin-left: 4px;">/ MT + GST & Freight</small>
-      </div>
-
+<!-- The Ticker Bar -->
+<div class="ticker-wrap" onclick="window.location.href='rate.html';">
+  <div class="ticker-track" style="color: #fff; font-family: 'Marcellus', serif;">
+    
+    <!-- Title & Last Updated -->
+    <div class="ticker-item" style="border-right: 2px solid #d4af37;">
+      <span style="font-weight: 700; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; margin-right: 15px;">
+        <i class="bi bi-graph-up-arrow me-2"></i>Live Market Rates
+      </span>
+      <span id="last-updated-time" class="blink" style="font-size: 0.9rem; color: #fff; font-weight: 400;">
+        Loading update time...
+      </span>
     </div>
+
+    <!-- 1. Soya DOC (Normal) -->
+    <div class="ticker-item">
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SOYA DOC (Normal):</span> 
+      <span id="rate-normal" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+    </div>
+
+    <!-- 2. Soya DOC (High Pro) -->
+    <div class="ticker-item">
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SOYA DOC (High Pro):</span> 
+      <span id="rate-highpro" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+    </div>
+
+    <!-- 3. Soya Crude Oil -->
+    <div class="ticker-item">
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SOYA CRUDE OIL:</span> 
+      <span id="rate-oil" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+    </div>
+
+    <!-- 4. Sunflower Oil -->
+    <div class="ticker-item">
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SUNFLOWER OIL:</span> 
+      <span id="rate-sunflower" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+    </div>
+
+    <!-- 5. Cotton Seed Oil -->
+    <div class="ticker-item">
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">COTTON SEED OIL:</span> 
+      <span id="rate-cotton" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+    </div>
+
+    <!-- 6. Soya Lecithin -->
+    <div class="ticker-item">
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SOYA LECITHIN:</span> 
+      <span id="rate-lecithin" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+    </div>
+
+    <!-- 7. Toor Dal -->
+    <div class="ticker-item">
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">TOOR DAL:</span> 
+      <span id="rate-toor" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+    </div>
+
+    <!-- 8. Chana Dal -->
+    <div class="ticker-item">
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">CHANA DAL:</span> 
+      <span id="rate-chana" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+    </div>
+
+    <!-- 9. Besan Flour -->
+    <div class="ticker-item">
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">BESAN FLOUR:</span> 
+      <span id="rate-besan" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+    </div>
+
   </div>
 </div>
 
   <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/banner_img_1.jpg);">
+    <!-- <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/banner_img_1.jpg);">
       <div class="container position-relative">
-        <h1>Contact</h1>
+        <h1>Contact</h1> -->
         <!-- <p>
           Home
           /
@@ -126,85 +238,229 @@
     </div><!-- End Page Title -->
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    
 
-      <div class="mb-5">
+
+    
+
+      <!-- <div class="mb-5">
         <iframe style="width: 100%; height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.2618516985817!2d76.96019213929655!3d18.404722291779592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcfa7316a5b073d%3A0xbbed1284fff3c23c!2sSachin%20International%20Proteins%20Private%20Limited!5e0!3m2!1sen!2sin!4v1769504515407!5m2!1sen!2sin" frameborder="0" allowfullscreen=""></iframe>
-      </div><!-- End Google Maps -->
+      </div>End Google Maps -->
 
-      <div class="container" data-aos="fade">
+      <!-- <div class="container" data-aos="fade">
 
         <div class="row gy-5 gx-lg-5">
 
-          <div class="col-lg-4">
+          <div class="row gy-4 mb-5"> -->
 
-            <div class="info">
-              <h3>Get in touch</h3>
-              <p></p>
 
-              <div class="info-item d-flex">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h4>Location:</h4>
-                  <p>At- Post Her, Near Karadkhel pati, Udgir Dist - Latur, Maharashtra 413517</p>
-                </div>
-              </div><!-- End Info Item -->
 
-              <div class="info-item d-flex">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h4>Email:</h4>
-                  <p>sachinhude@gmail.com</p>
-                </div>
-              </div><!-- End Info Item -->
+  <section id="contact" class="contact section">
 
-              <div class="info-item d-flex">
-                <i class="bi bi-phone flex-shrink-0"></i>
-                <div>
-                  <h4>Call:</h4>
-                  <p> 02385 256211</p>
-                </div>
-              </div><!-- End Info Item -->
+  
+  <!-- New sec for horizontal grid  -->
 
-            </div>
 
+  <section id="map-split" class="py-5" style="background: #fdfaf0;">
+  <div class="container col-xl-10">
+    <div class="row align-items-center shadow-sm" style="background: #fff; border-radius: 20px; overflow: hidden; border: 1px solid #eee;">
+      
+      <div class="col-lg-5 p-4 p-lg-5" data-aos="fade-right">
+        <h3 style="font-family: 'Marcellus', serif; color: #1a6d42; font-size: 1.8rem; margin-bottom: 10px;">Find Us</h3>
+        <p class="text-muted small mb-4">Click below to locate our facilities on Google Maps.</p>
+        
+        <div class="d-grid gap-2">
+          <a href="https://maps.app.goo.gl/dZe4A2sK7KoPiQt2A" target="_blank" class="map-side-btn">
+            <i class="bi bi-geo-alt-fill"></i> Sachin International Proteins (Udgir)
+          </a>
+          <a href="https://maps.app.goo.gl/6qkLbHqM1SVEJ1LXA" target="_blank" class="map-side-btn">
+            <i class="bi bi-building"></i> Dal Industry & Warehouse
+          </a>
+          <a href="https://maps.app.goo.gl/Ca3oMVPf7dyYVyVY9" target="_blank" class="map-side-btn">
+            <i class="bi bi-briefcase-fill"></i> Cold storage 
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-7 p-3 p-lg-4" data-aos="fade-left">
+        <div style="border-radius: 15px; overflow: hidden; border: 2px solid #f1f1f1;">
+          <iframe 
+            style="width: 100%; height: 350px; border:0; display: block;" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.2618516985817!2d76.96019213929655!3d18.404722291779592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcfa7316a5b073d%3A0xbbed1284fff3c23c!2sSachin%20International%20Proteins%20Private%20Limited!5e0!3m2!1sen!2sin!4v1769504515407!5m2!1sen!2sin" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .map-side-btn {
+    padding: 12px 15px;
+    background: #fcfcfc;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+    border: 1px solid #efefef;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .map-side-btn:hover {
+    background: #1a6d42;
+    color: #fff !important;
+    transform: translateX(5px);
+  }
+
+  .map-side-btn i { color: #d4af37; }
+  .map-side-btn:hover i { color: #fff; }
+</style>
+  
+
+  <div class="container" data-aos="fade">
+    <div class="row gy-5 gx-lg-5" data-aos="fade-up">
+  <div class="col-lg-12">
+    <div class="info" style="background: #fff; padding: 40px; border-radius: 15px; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+      <h3 style="font-family: 'Marcellus', serif; color: #1a6d42; text-align: center; margin-bottom: 40px; font-size: 2rem;">Contact Information</h3>
+      
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <div class="info-item text-center p-3" style="height: 100%; border-right: 1px solid #eee;">
+            <i class="bi bi-geo-alt" style="color: #d4af37; font-size: 1.8rem;"></i>
+            <h4 style="font-weight: 700; margin-top: 10px;">Main Plant</h4>
+            <p class="mb-0 fw-bold">289/1 At- Post Her, Near Karadkhel pati,<br>Udgir Dist - Latur, MH - 413517</p>
           </div>
+        </div>
 
-<div class="col-lg-8">
-  <form action="https://api.web3forms.com/submit" method="POST" role="form">
+        <div class="col-md-4">
+          <div class="info-item text-center p-3" style="height: 100%; border-right: 1px solid #eee;">
+            <i class="bi bi-building" style="color: #1a6d42; font-size: 1.8rem;"></i>
+            <h4 style="font-weight: 700; margin-top: 10px;">Sandeep Dal Industry & Warehouses</h4>
+            <p class="mb-0 fw-bold">C37Q+5C Loni, MIDC Udgir,<br>Dist - Latur, MH - 413517</p>
+          </div>
+        </div>
 
-    <input type="hidden" name="access_key" value="6ce6b202-8e7a-401f-a5f6-f325a92905e9">
-
-    <div class="row">
-      <div class="col-md-6 form-group">
-        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-      </div>
-      <div class="col-md-6 form-group mt-3 mt-md-0">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-      </div>
-    </div>
-    
-    <div class="form-group mt-3">
-      <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-    </div>
-    
-    <div class="form-group mt-3">
-      <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-    </div>
-
-    <div class="my-3">
+        <div class="col-md-4">
+          <div class="info-item text-center p-3" style="height: 100%;">
+            <i class="bi bi-briefcase" style="color: #1a6d42; font-size: 1.8rem;"></i>
+            <h4 style="font-weight: 700; margin-top: 10px;">SP Cold Storage</h4>
+            <p class="mb-0 fw-bold">C38V+VXP, Nanded Road Somnathpur Udgir<br> Dist - Latur, MH - 413517</p>
+          </div>
+        </div>
       </div>
 
-    <div class="text-center">
-      <button type="submit" style="background: green; color: white; border: none; padding: 10px 30px; border-radius: 5px; transition: 0.3s; cursor: pointer;">
-        Send Message
-      </button>
-    </div>
+      <div style="height: 1px; background: linear-gradient(90deg, transparent, #d4af37, transparent); width: 80%; margin: 40px auto;"></div>
 
-  </form>
+      <div class="row gy-4 justify-content-center">
+        <div class="col-md-5">
+          <div class="d-flex align-items-center justify-content-center p-3" style="background: #fdfaf0; border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.2);">
+            <i class="bi bi-envelope-at" style="font-size: 1.5rem; color: #1a6d42; margin-right: 15px;"></i>
+            <div class="text-start">
+              <h4 style="margin: 0; font-size: 1.1rem; font-weight: 700;">Email Us</h4>
+              <p style="margin: 0; color: #555;">sachinhude@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <div class="d-flex align-items-center justify-content-center p-3" style="background: #fdfaf0; border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.2);">
+            <i class="bi bi-headset" style="font-size: 1.5rem; color: #1a6d42; margin-right: 15px;"></i>
+            <div class="text-start">
+              <h4 style="margin: 0; font-size: 1.1rem; font-weight: 700;">Call Support</h4>
+              <p style="margin: 0; color: #555;">+91 94229 52233 / 02385 256211</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+  </div>
+</section>        
+
+  
+
+<div class="row justify-content-center mt-5">
+  <div class="col-lg-10">
+    <div style="background: #fff; padding: 40px; border-radius: 10px; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+      
+      <div class="text-center mb-4">
+        <h3 style="font-family: 'Marcellus', serif; color: #1a6d42;">Send Us a Message</h3>
+        <p class="text-muted mb-0 fw-bold">We will get back to you within 24 hours.</p>
+      </div>
+
+      <form action="https://api.web3forms.com/submit" method="POST" role="form">
+        <input type="hidden" name="access_key" value="6ce6b202-8e7a-401f-a5f6-f325a92905e9">
+        <input type="hidden" name="from_name" value="Sachin Gold Website">
+
+        <div class="row gy-3">
+        <div class="col-md-6 form-group">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" style="padding: 12px; border-radius: 5px;" required>
+        </div>
+        <div class="col-md-6 form-group">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" style="padding: 12px; border-radius: 5px;" required>
+        </div>
+        <div class="col-lg-12 form-group">
+          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" style="padding: 12px; border-radius: 5px;" required>
+        </div>
+        <div class="col-lg-12 form-group">
+          <textarea class="form-control" name="message" rows="5" placeholder="Message" style="padding: 12px; border-radius: 5px;" required></textarea>
+        </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <button type="submit" class="contact-submit-btn">
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
-<input type="hidden" name="from_name" value="Sachin Gold Website">
+<style>
+
+
+  /* This targets the placeholder text specifically */
+  .form-control::placeholder {
+    font-weight: 600 !important; /* Semi-bold */
+    color: #6c757d; /* Standard grey color, but bold */
+    opacity: 1; /* Ensures visibility in Firefox */
+  }
+
+  /* Styling the button to match your site's premium feel */
+  .contact-submit-btn {
+    background: #1a6d42; 
+    color: white; 
+    border: none; 
+    padding: 12px 50px; 
+    border-radius: 50px; 
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s; 
+    cursor: pointer;
+  }
+  .contact-submit-btn:hover {
+    background: #d4af37; /* Changes to Gold on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  /* Improve focus state of input fields */
+  .form-control:focus {
+    border-color: #d4af37;
+    box-shadow: none;
+  }
+</style>
+
 
 <!-- 
           <div class="col-lg-8">
@@ -391,54 +647,76 @@
 <!-- /* Dynamic rate card  */ -->
 
 
-
 <script>
 async function updateLiveRates() {
-  // 1. REPLACE 'YOUR_SHEETDB_ID' with the ID from your SheetDB dashboard
-  // Example: "https://sheetdb.io/api/v1/abcd1234efgh"
-  const apiURL = "https://sheetdb.io/api/v1/nzf0wj47orzak";
+  const apiURL = "https://sheetdb.io/api/v1/jjmnrcv0gy9s3";
 
   try {
-    const response = await fetch(`${apiURL}?cache_bust=${new Date().getTime()}`
-  );
+    const response = await fetch(`${apiURL}?cache_bust=${new Date().getTime()}`);
     
     if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status} - Check if your API ID is correct.`);
+        throw new Error(`HTTP Error: ${response.status}`);
     }
 
     const data = await response.json();
 
-    // SheetDB returns an array [{}, {}]. We verify it's an array before using .find()
-    if (Array.isArray(data)) {
-        const normalRow = data.find(item => item.name === 'normal');
-        const highProRow = data.find(item => item.name === 'highpro');
-
-        if (normalRow && normalRow.price) {
-          document.getElementById('rate-normal').innerText = "₹ " + parseInt(normalRow.price).toLocaleString('en-IN');
-        }
-
-        if (highProRow && highProRow.price) {
-          document.getElementById('rate-highpro').innerText = "₹ " + parseInt(highProRow.price).toLocaleString('en-IN');
-        }
-
-        // Updating the timestamp
-        if (normalRow && normalRow.time) {
-            const date = new Date(normalRow.time);
-            const timeStr = date.toLocaleDateString() + " | " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    if (Array.isArray(data) && data.length > 0) {
+        
+        // Upgraded helper function!
+        const updateTile = (elementId, sheetName) => {
+            // Makes it case-insensitive so "Oil" or "oil" in your sheet will both work
+            const row = data.find(item => item.name && item.name.toLowerCase() === sheetName.toLowerCase());
             
-            // Look for a span/div with this ID to show the time
-            const timeElement = document.getElementById('last-updated-time');
-            if(timeElement) timeElement.innerText = "Updated: " + timeStr;
+            if (row && row.price) {
+                // Finds ALL matching IDs on the page (fixes the issue if you have the ticker AND cards on one page)
+                const elements = document.querySelectorAll(`[id='${elementId}']`);
+                elements.forEach(el => {
+                    el.innerText = "₹ " + parseInt(row.price).toLocaleString('en-IN');
+                });
+            }
+        };
+
+        // Update all products
+        updateTile('rate-normal', 'normal');
+        updateTile('rate-highpro', 'highpro');
+        updateTile('rate-oil', 'oil');
+        updateTile('rate-sunflower', 'sunflower');
+        updateTile('rate-cotton', 'cotton');
+        updateTile('rate-lecithin', 'lecithin');
+        updateTile('rate-toor', 'toor');
+        updateTile('rate-chana', 'chana');
+        updateTile('rate-besan', 'besan');
+
+        // Update the Main Timestamp (using 'normal' row as the source)
+        const timeElements = document.querySelectorAll('[id="last-updated-time"]');
+        const normalRow = data.find(item => item.name && item.name.toLowerCase() === 'normal');
+
+        if (timeElements.length > 0 && normalRow && normalRow.time) {
+            const date = new Date(normalRow.time);
+            timeElements.forEach(el => {
+                if (!isNaN(date.getTime())) {
+                    const timeStr = date.toLocaleDateString('en-IN') + " | " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    el.innerText = "Last Updated: " + timeStr;
+                } else {
+                    el.innerText = "Last Updated: " + normalRow.time;
+                }
+            });
         }
     }
   } catch (error) {
-    console.error("Sachin Gold Rate Sync Error:", error.message);
-    // If it fails, your HTML stays as is (showing your default static rates)
+    console.error("Rate Sync Error:", error.message);
+    const timeElements = document.querySelectorAll('[id="last-updated-time"]');
+    timeElements.forEach(el => {
+        el.innerText = "Offline";
+        el.classList.remove('blink'); 
+    });
   }
 }
 
+// Run the script when the page is fully loaded
 document.addEventListener('DOMContentLoaded', updateLiveRates);
 </script>
+
 
 
 

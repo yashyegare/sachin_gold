@@ -263,7 +263,7 @@ h6 {
 .header {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 15px 0; /* Adjust padding to balance the vertical space */
+  padding: 5px 0; /* Adjust padding to balance the vertical space */
   transition: all 0.5s;
   z-index: 997;
 }
@@ -382,6 +382,9 @@ h6 {
     visibility: visible;
   }
 }
+
+
+
 
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
@@ -2443,4 +2446,480 @@ section,
         width: 60px;
         height: 60px;
     }
+}
+
+
+/* 
+Updated css of nav bar */
+
+
+/* Custom Navigation Styling - Sandeep Dal Style */
+.navmenu ul li a {
+    font-family: "Marcellus", serif; /* Premium font style */
+    color: #333; /* Dark neutral text */
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    padding: 10px 15px;
+    transition: 0.3s;
+    text-transform: uppercase; /* Professional look */
+}
+
+/* Hover & Active States */
+.navmenu ul li a:hover, 
+.navmenu ul li a.active {
+    color: #d4af37 !important; /* Brand Gold color */
+}
+
+/* Underline animation on hover */
+.navmenu ul li a {
+    position: relative;
+}
+
+.navmenu ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 15px;
+    background-color: #d4af37;
+    transition: 0.3s;
+}
+
+.navmenu ul li a:hover:after,
+.navmenu ul li a.active:after {
+    width: calc(100% - 30px);
+}
+
+/* running navigation bar css */
+
+/* Ticker Container */
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+/* The Animation */
+.ticker-content {
+  display: inline-block;
+  padding-left: 100%; /* Start off-screen */
+  animation: ticker-run 25s linear infinite; /* Adjust speed here (higher = slower) */
+}
+
+@keyframes ticker-run {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Pause on Hover */
+.rate-card-bar:hover .ticker-content {
+  animation-play-state: paused;
+}
+
+/* Styling the Ticker Items */
+.ticker-item {
+  display: inline-block;
+  padding: 0 50px; /* Spacing between items */
+  color: #fff;
+  font-family: 'Marcellus', serif;
+}
+
+.rate-label { font-weight: 700; color: #d4af37; text-transform: uppercase; letter-spacing: 1px; }
+.product { font-weight: 400; font-size: 0.9rem; opacity: 0.9; margin-left: 10px; }
+.price { font-weight: 700; color: #fff; font-size: 1.1rem; margin-left: 8px; }
+.unit { font-size: 0.7rem; color: #d4af37; margin-left: 4px; }
+.time-stamp { color: #d4af37; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; border-left: 1px solid rgba(212, 175, 55, 0.3); padding-left: 20px; }
+
+/* Blinking effect for update time */
+.time-stamp {
+  animation: blink-animation 2s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+  to { visibility: hidden; }
+}
+
+
+/* director / team */
+
+.person img {
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: grayscale(20%); /* Subtle professional look */
+}
+.person:hover img {
+    transform: scale(1.03);
+    filter: grayscale(0%); /* Brings color back on hover */
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+.rate-card-bar {
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); /* Very subtle texture */
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   Premium Product Cards - Green Accents & Gold Interactions
+   ========================================================================== */
+
+.premium-product-link {
+    text-decoration: none !important;
+    display: block;
+    height: 100%;
+}
+
+.premium-product-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px 25px 30px;
+    position: relative;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(26, 109, 66, 0.1); 
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* Category Badge - Agriculture Green */
+.product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(26, 109, 66, 0.15); /* Light Green tint */
+    color: #1a6d42; /* Agriculture Green text */
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+/* The 'Logo' Icon Wrapper - Permanent Green Theme */
+.product-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 25px;
+    background: linear-gradient(145deg, #ffffff, #f3fdf6); 
+    border: 2px solid rgba(26, 109, 66, 0.2); 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Icon Color - Permanent Green */
+.product-icon i {
+    font-size: 32px;
+    color: #1a6d42; 
+    transition: all 0.4s ease;
+}
+
+/* Typography */
+.premium-product-card h3 {
+    font-family: 'Marcellus', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.premium-product-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* Action Link - Default Black */
+.card-action {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1a1a1a; /* Black before hover */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.card-action i {
+    transition: transform 0.3s ease;
+}
+
+/* =========================================
+   HOVER EFFECTS 
+   ========================================= */
+
+/* Card lifts and gets a Gold bottom border */
+.premium-product-link:hover .premium-product-card {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: #d4af37; 
+}
+
+/* Badge turns solid Green on hover */
+.premium-product-link:hover .product-badge {
+    background: #1a6d42; 
+    color: #ffffff;
+}
+
+/* Icon Wrapper scales up and gets a soft Green shadow (Color stays Green!) */
+.premium-product-link:hover .product-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 25px rgba(26, 109, 66, 0.25);
+}
+
+/* Action Link turns Gold and arrow slides right */
+.premium-product-link:hover .card-action {
+    color: #d4af37; /* Turns Gold */
+    opacity: 1;
+}
+
+.premium-product-link:hover .card-action i {
+    transform: translateX(5px);
+}
+
+
+
+
+/* ==========================================================================
+   Value Chain / Ecosystem Banner (Compact & Animated) for under services/products
+   ========================================================================== */
+
+.value-chain-banner {
+    padding: 50px 0 40px; 
+    position: relative;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    border-bottom: 3px solid #d4af37; 
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+/* Container for the horizontal flow */
+.chain-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 30px; 
+    padding: 0 10px;
+}
+
+/* Individual Nodes (The 5 Steps) */
+.chain-node {
+    text-align: center;
+    width: 140px;
+    position: relative;
+    z-index: 3;
+}
+
+.node-icon-wrapper {
+    width: 70px; 
+    height: 70px;
+    margin: 0 auto 15px;
+    background: #1a1a1a;
+    border: 2px solid #1a6d42; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(26, 109, 66, 0.4);
+    animation: icon-pulse 5s infinite; 
+}
+
+.node-icon-wrapper i {
+    font-size: 28px; 
+    color: #d4af37; 
+}
+
+.node-title {
+    color: #fff;
+    font-size: 1rem; 
+    font-weight: 700;
+    margin-bottom: 3px;
+    font-family: 'Marcellus', serif;
+}
+
+.node-desc {
+    color: #d4af37;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* The Connecting Lines */
+.chain-connector {
+    flex-grow: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 35px; /* Aligns exactly with the center of the icons */
+    position: relative;
+    overflow: hidden;
+}
+
+/* =========================================
+   THE ANIMATIONS (The Flowing Gold Light)for under services/products conti.
+   ========================================= */
+
+.tracer-light {
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(212,175,55,0) 0%, rgba(212,175,55,1) 50%, rgba(212,175,55,0) 100%);
+    box-shadow: 0 0 10px #d4af37;
+    animation: shoot-light 5s infinite; 
+}
+
+/* Keyframes for the glowing light shooting across the line */
+@keyframes shoot-light {
+    0% { left: -50px; opacity: 0; }
+    10% { opacity: 1; }
+    20% { left: 100%; opacity: 0; }
+    100% { left: 100%; opacity: 0; } 
+}
+
+/* Keyframes for the icon glowing when the light hits it */
+@keyframes icon-pulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(26, 109, 66, 0.4); border-color: #1a6d42; }
+    10% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.8); border-color: #d4af37; }
+    25% { box-shadow: 0 0 15px rgba(26, 109, 66, 0.4); border-color: #1a6d42; }
+}
+
+/* Custom Blinking Highlight for Active Service Node */
+.active-blink {
+    background: #d4af37 !important;
+    border-color: #d4af37 !important;
+    animation: gold-blink 1.5s infinite alternate !important;
+}
+
+@keyframes gold-blink {
+    0% { 
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.4); 
+        transform: scale(1); 
+    }
+    100% { 
+        box-shadow: 0 0 35px rgba(212, 175, 55, 1); 
+        transform: scale(1.08); 
+    }
+}
+
+
+
+/* ==========================================================================
+   Commodity Trading Catalogue Cards
+   ========================================================================== */
+
+.catalogue-card {
+    position: relative;
+    height: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 25px 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-decoration: none !important;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* The Background Image */
+.catalogue-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s ease;
+    z-index: 1;
+}
+
+/* Dark Gradient Overlay for text readability */
+.catalogue-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.4) 50%, rgba(26, 26, 26, 0.1) 100%);
+    z-index: 2;
+    transition: background 0.5s ease;
+}
+
+/* Content Container */
+.catalogue-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+}
+
+.catalogue-title {
+    color: #d4af37; /* Sachin Gold */
+    font-family: 'Marcellus', serif;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    transition: transform 0.4s ease;
+}
+
+/* The hidden 'Action' text that slides up */
+.catalogue-action {
+    color: #ffffff;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Hover Effects */
+.catalogue-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+    border-color: #d4af37;
+}
+
+.catalogue-card:hover .catalogue-bg {
+    transform: scale(1.1); /* Image zooms in */
+}
+
+.catalogue-card:hover .catalogue-overlay {
+    background: linear-gradient(to top, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.6) 60%, rgba(26, 26, 26, 0.2) 100%);
+}
+
+.catalogue-card:hover .catalogue-title {
+    transform: translateY(-5px);
+}
+
+.catalogue-card:hover .catalogue-action {
+    opacity: 1;
+    transform: translateY(0);
 }
