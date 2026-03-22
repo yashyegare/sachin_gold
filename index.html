@@ -40,13 +40,89 @@
 
 <body class="index-page">
 
+
+<!-- =======================================================
+     SACHIN GOLD PREMIUM SPLASH SCREEN (CSS Color Only)
+======================================================== -->
+<style>
+  /* The full-screen background */
+  #splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* CHANGED: Clean white background for maximum contrast */
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999999; /* Stays on top of everything */
+    transition: opacity 1s ease-out, visibility 1s ease-out; /* Smooth 1s fade-out */
+  }
+
+  /* The Logo Animation (Slow, Premium Zoom In) */
+  .splash-logo {
+    /* Massive brand impact */
+    height: 280px; 
+    width: auto;
+    /* 2-second slow zoom animation */
+    animation: luxurious-zoom-in 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    /* REMOVED: filter: drop-shadow for clean look on white */
+  }
+
+  @keyframes luxurious-zoom-in {
+    0% { transform: scale(0.9); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: scale(1.1); opacity: 1; } 
+  }
+
+  /* The class that hides the splash screen after the display time */
+  .splash-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+</style>
+
+<div id="splash-screen">
+  <img src="assets/img/sachin_gold_logo2.jpg" alt="Sachin Gold Legacy" class="splash-logo">
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const splashScreen = document.getElementById('splash-screen');
+
+    // Check if the user has already seen the splash screen this session
+    if (!sessionStorage.getItem('sachinGoldSplashV3Seen')) {
+      
+      // Waits 2 seconds before triggering the fade-out
+      setTimeout(() => {
+        splashScreen.classList.add('splash-hidden');
+        
+        // Completely removes the screen after the 1-second fade out finishes
+        setTimeout(() => splashScreen.remove(), 1000); 
+      }, 2000);
+
+      // Tell the browser to remember so it doesn't play on every single click
+      sessionStorage.setItem('sachinGoldSplashV3Seen', 'true');
+
+    } else {
+      // If they already saw it, hide and remove it instantly
+      splashScreen.style.display = 'none';
+      splashScreen.remove();
+    }
+  });
+</script>
+
  <header id="header" class="header d-flex align-items-center position-relative">
   <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-    <a href="index.html" class="logo d-flex align-items-center">
-      <img src="assets/img/sachin_gold_logo.png" alt="brand_logo" style="height: 100px; width: auto;">
-      <img src="assets/img/sachin_gold_logo2.jpg" alt="brand_logo" style="height: 45px; width: auto; margin-right: 15px;">
-    </a>
+  <a href="index.html" class="logo d-flex align-items-center" style="margin-left: -25px;">
+  <img src="assets/img/sachin_gold_logo2.jpg" alt="brand_logo" style="height: 100px; width: auto; margin-right: 15px;">
+  
+  <img src="assets/img/sachin_gold_logo.png" alt="brand_logo" style="height: 50px; width: auto;">
+</a>
 
     <nav id="navmenu" class="navmenu">
       <ul>
@@ -207,16 +283,16 @@
       <span id="rate-oil" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
     </div>
 
-    <!-- 4. Sunflower Oil -->
+    <!-- 4. Soya Fatty Oil -->
     <div class="ticker-item">
-      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SUNFLOWER OIL:</span> 
-      <span id="rate-sunflower" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SOYA FATTY OIL:</span> 
+      <span id="rate-fatty" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
     </div>
 
-    <!-- 5. Cotton Seed Oil -->
+    <!-- 5. Soya Acid Oil -->
     <div class="ticker-item">
-      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">COTTON SEED OIL:</span> 
-      <span id="rate-cotton" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SOYA ACID OIL:</span> 
+      <span id="rate-acid" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
     </div>
 
     <!-- 6. Soya Lecithin -->
@@ -258,6 +334,15 @@
           <div class="carousel-container">
             <h2>Unwavering commitment to quality, innovation, and customer satisfaction</h2>
             <p>Hude Group continues to nourish households and industries alike.</p>
+          </div>
+        </div><!-- End Carousel Item -->
+
+
+         <div class="carousel-item">
+          <img src="assets/img/banner_new_img09.png" alt="Agro Commodity Trading">
+          <div class="carousel-container">
+            <h2>Your Trusted Partner in Bulk Agro Commodity Trading</h2>
+            <p>With decades of market expertise, we handle high-volume procurement and distribution of premium grains, pulses, and oilseeds, ensuring competitive pricing and seamless supply chain solutions.</p>
           </div>
         </div><!-- End Carousel Item -->
 
@@ -305,7 +390,7 @@
         <div class="carousel-item">
           <img src="assets/img/team_img_1.png" alt="">
           <div class="carousel-container">
-            <h2>Proudly present across Maharashtra and Karnataka in regions including Udgir, Latur, Solapur, Bhalki, and Bidar.</h2>
+            <h2>Proudly present across Maharashtra and Karnataka.</h2>
             <p>Our strong geographical presence allows us to offer high-protein crops of superior quality while being strategically located to ensure easy access and round-the-clock service.</p>
           </div>
         </div><!-- End Carousel Item -->
@@ -852,7 +937,7 @@
 
 <script>
 async function updateLiveRates() {
-  const apiURL = "https://sheetdb.io/api/v1/jjmnrcv0gy9s3";
+  const apiURL = "https://sheetdb.io/api/v1/ppcjhx23tkigr";
 
   try {
     const response = await fetch(`${apiURL}?cache_bust=${new Date().getTime()}`);
@@ -883,8 +968,8 @@ async function updateLiveRates() {
         updateTile('rate-normal', 'normal');
         updateTile('rate-highpro', 'highpro');
         updateTile('rate-oil', 'oil');
-        updateTile('rate-sunflower', 'sunflower');
-        updateTile('rate-cotton', 'cotton');
+        updateTile('rate-fatty', 'fatty'); // Replaced sunflower
+        updateTile('rate-acid', 'acid');   // Replaced cotton
         updateTile('rate-lecithin', 'lecithin');
         updateTile('rate-toor', 'toor');
         updateTile('rate-chana', 'chana');

@@ -41,10 +41,11 @@
    <header id="header" class="header d-flex align-items-center position-relative">
   <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-    <a href="index.html" class="logo d-flex align-items-center">
-      <img src="assets/img/sachin_gold_logo.png" alt="brand_logo" style="height: 100px; width: auto;">
-      <img src="assets/img/sachin_gold_logo2.jpg" alt="brand_logo" style="height: 45px; width: auto; margin-right: 15px;">
-    </a>
+  <a href="index.html" class="logo d-flex align-items-center" style="margin-left: -25px;">
+  <img src="assets/img/sachin_gold_logo2.jpg" alt="brand_logo" style="height: 65px; width: auto; margin-right: 15px;">
+  
+  <img src="assets/img/sachin_gold_logo.png" alt="brand_logo" style="height: 50px; width: auto;">
+</a>
 
     <nav id="navmenu" class="navmenu">
       <ul>
@@ -178,16 +179,16 @@
       <span id="rate-oil" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
     </div>
 
-    <!-- 4. Sunflower Oil -->
+    <!-- 4. Soya Fatty Oil -->
     <div class="ticker-item">
-      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SUNFLOWER OIL:</span> 
-      <span id="rate-sunflower" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SOYA FATTY OIL:</span> 
+      <span id="rate-fatty" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
     </div>
 
-    <!-- 5. Cotton Seed Oil -->
+    <!-- 5. Soya Acid Oil -->
     <div class="ticker-item">
-      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">COTTON SEED OIL:</span> 
-      <span id="rate-cotton" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SOYA ACID OIL:</span> 
+      <span id="rate-acid" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
     </div>
 
     <!-- 6. Soya Lecithin -->
@@ -649,7 +650,7 @@
 
 <script>
 async function updateLiveRates() {
-  const apiURL = "https://sheetdb.io/api/v1/jjmnrcv0gy9s3";
+  const apiURL = "https://sheetdb.io/api/v1/ppcjhx23tkigr";
 
   try {
     const response = await fetch(`${apiURL}?cache_bust=${new Date().getTime()}`);
@@ -680,8 +681,8 @@ async function updateLiveRates() {
         updateTile('rate-normal', 'normal');
         updateTile('rate-highpro', 'highpro');
         updateTile('rate-oil', 'oil');
-        updateTile('rate-sunflower', 'sunflower');
-        updateTile('rate-cotton', 'cotton');
+        updateTile('rate-fatty', 'fatty'); // Replaced sunflower
+        updateTile('rate-acid', 'acid');   // Replaced cotton
         updateTile('rate-lecithin', 'lecithin');
         updateTile('rate-toor', 'toor');
         updateTile('rate-chana', 'chana');
@@ -716,7 +717,6 @@ async function updateLiveRates() {
 // Run the script when the page is fully loaded
 document.addEventListener('DOMContentLoaded', updateLiveRates);
 </script>
-
 
 
 

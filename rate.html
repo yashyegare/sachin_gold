@@ -67,10 +67,11 @@
    <header id="header" class="header d-flex align-items-center position-relative">
   <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-    <a href="index.html" class="logo d-flex align-items-center">
-      <img src="assets/img/sachin_gold_logo.png" alt="brand_logo" style="height: 100px; width: auto;">
-      <img src="assets/img/sachin_gold_logo2.jpg" alt="brand_logo" style="height: 45px; width: auto; margin-right: 15px;">
-    </a>
+   <a href="index.html" class="logo d-flex align-items-center" style="margin-left: -25px;">
+  <img src="assets/img/sachin_gold_logo2.jpg" alt="brand_logo" style="height: 65px; width: auto; margin-right: 15px;">
+  
+  <img src="assets/img/sachin_gold_logo.png" alt="brand_logo" style="height: 50px; width: auto;">
+</a>
 
     <nav id="navmenu" class="navmenu">
       <ul>
@@ -141,9 +142,6 @@
     </div><!-- End Page Title -->
       
 
-
-
-
     <section id="rates" class="section">
       <div class="container text-center mb-5" data-aos="fade-up">
         <h2>Current Market Rates</h2>
@@ -182,22 +180,21 @@
         </div>
       </div>
 
-
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
         <div class="rate-card p-4 bg-white text-center">
-          <div class="product-icon"><i class="bi bi-sun"></i></div>
-          <h3>SUNFLOWER OIL</h3>
-          <h2 id="rate-sunflower" style="color: #1a6d42;">₹ 00,000</h2>
-          <p class="text-muted">Per 10kg <br><small>Refined Grade</small></p>
+          <div class="product-icon"><i class="bi bi-droplet"></i></div>
+          <h3>SOYA FATTY OIL</h3>
+          <h2 id="rate-fatty" style="color: #1a6d42;">₹ 00,000</h2>
+          <p class="text-muted">Per 10kg <br><small>Industrial Grade</small></p>
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
         <div class="rate-card p-4 bg-white text-center">
-          <div class="product-icon"><i class="bi bi-patch-check"></i></div>
-          <h3>COTTON SEED OIL</h3>
-          <h2 id="rate-cotton" style="color: #1a6d42;">₹ 00,000</h2>
-          <p class="text-muted">Per 10kg <br><small>Premium Refined</small></p>
+          <div class="product-icon"><i class="bi bi-moisture"></i></div>
+          <h3>SOYA ACID OIL</h3>
+          <h2 id="rate-acid" style="color: #1a6d42;">₹ 00,000</h2>
+          <p class="text-muted">Per 10kg <br><small>Industrial Grade</small></p>
         </div>
       </div>
 
@@ -211,11 +208,14 @@
       </div>
 
     </div>
+    </div>
     </section>
 
 
 
-  <section id="dals" class="section py-5" style="background-color: #f9f9f9;">
+
+
+     <section id="dals" class="section py-5" style="background-color: #f9f9f9;">
     <div class="container text-center mb-5" data-aos="fade-up">
       <h2 style="font-family: 'Marcellus', serif; color: #1a1a1a;">Dals & Flour Rates</h2>
       <div style="height: 2px; background: #d4af37; width: 100px; margin: 10px auto;"></div>
@@ -254,6 +254,7 @@
       </div>
     </div>
   </section>
+
 
 
 
@@ -643,7 +644,7 @@
 <script>
 async function updateLiveRates() {
   // Ensure this ID matches the SheetDB API for your rates.html data
-  const apiURL = "https://sheetdb.io/api/v1/jjmnrcv0gy9s3";
+  const apiURL = "https://sheetdb.io/api/v1/ppcjhx23tkigr";
 
   try {
     const response = await fetch(`${apiURL}?cache_bust=${new Date().getTime()}`);
@@ -656,55 +657,60 @@ async function updateLiveRates() {
 
     if (Array.isArray(data) && data.length > 0) {
         
-        // Helper function to update each card's price based on the 'name' in your sheet
+        // Upgraded helper function to update ALL matching IDs (Cards + Ticker)
         const updateTile = (elementId, sheetName) => {
-            const row = data.find(item => item.name === sheetName);
-            const el = document.getElementById(elementId);
-            if (row && row.price && el) {
-                el.innerText = "₹ " + parseInt(row.price).toLocaleString('en-IN');
+            // Case-insensitive match for Google Sheet name
+            const row = data.find(item => item.name && item.name.toLowerCase() === sheetName.toLowerCase());
+            
+            if (row && row.price) {
+                const elements = document.querySelectorAll(`[id='${elementId}']`);
+                elements.forEach(el => {
+                    el.innerText = "₹ " + parseInt(row.price).toLocaleString('en-IN');
+                });
             }
         };
 
-        // Update all 6 products
+        // Update all products with the new names!
         updateTile('rate-normal', 'normal');
         updateTile('rate-highpro', 'highpro');
         updateTile('rate-oil', 'oil');
-        updateTile('rate-sunflower', 'sunflower');
-        updateTile('rate-cotton', 'cotton');
+        updateTile('rate-fatty', 'fatty'); // Replaced sunflower
+        updateTile('rate-acid', 'acid');   // Replaced cotton
         updateTile('rate-lecithin', 'lecithin');
         updateTile('rate-toor', 'toor');
         updateTile('rate-chana', 'chana');
         updateTile('rate-besan', 'besan');
 
         // Update the Main Timestamp (using 'normal' row as the source)
-        const timeElement = document.getElementById('last-updated-time');
-        const normalRow = data.find(item => item.name === 'normal');
+        const timeElements = document.querySelectorAll('[id="last-updated-time"]');
+        const normalRow = data.find(item => item.name && item.name.toLowerCase() === 'normal');
 
-        if (timeElement && normalRow && normalRow.time) {
+        if (timeElements.length > 0 && normalRow && normalRow.time) {
             const date = new Date(normalRow.time);
-            if (!isNaN(date.getTime())) {
-                const timeStr = date.toLocaleDateString('en-IN') + " | " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-                timeElement.innerText = "Last Updated: " + timeStr;
-            } else {
-                // Fallback to raw text if date formatting fails
-                timeElement.innerText = "Last Updated: " + normalRow.time;
-            }
+            timeElements.forEach(el => {
+                if (!isNaN(date.getTime())) {
+                    const timeStr = date.toLocaleDateString('en-IN') + " | " + date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    el.innerText = "Last Updated: " + timeStr;
+                } else {
+                    // Fallback to raw text if date formatting fails
+                    el.innerText = "Last Updated: " + normalRow.time;
+                }
+            });
         }
     }
   } catch (error) {
     console.error("Rate Sync Error:", error.message);
-    const timeElement = document.getElementById('last-updated-time');
-    if(timeElement) {
-        timeElement.innerText = "Offline";
-        timeElement.classList.remove('blink'); // Stop blinking on error
-    }
+    const timeElements = document.querySelectorAll('[id="last-updated-time"]');
+    timeElements.forEach(el => {
+        el.innerText = "Offline";
+        el.classList.remove('blink'); // Stop blinking on error
+    });
   }
 }
 
 // Run the script when the page is fully loaded
 document.addEventListener('DOMContentLoaded', updateLiveRates);
 </script>
-
 </body>
 
 </html>
