@@ -89,6 +89,103 @@
     visibility: hidden;
     pointer-events: none;
   }
+
+
+
+
+  /* -----------------------------------
+     Floating Premium Translator 
+  --------------------------------------*/
+  .floating-translate {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    z-index: 999999; /* Increased z-index to stay above everything */
+    background-color: #fff;
+    border: 2px solid #d4af37;
+    border-radius: 50px;
+    padding: 6px 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    display: block !important; /* Forces it to bypass template hiding rules */
+  }
+  
+  .floating-translate:hover {
+    transform: translateY(-3px);
+  }
+  
+
+  .goog-te-gadget-simple {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-family: 'Marcellus', serif !important;
+    font-weight: 600;
+  }
+  
+  .goog-te-gadget-icon {
+    display: none; 
+  }
+
+
+/* =======================================================
+     MOBILE SPECIFIC RULES FOR TRANSLATOR (GOD MODE)
+  ======================================================== */
+  @media (max-width: 768px) {
+    .floating-translate {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      position: fixed !important;
+      bottom: 15px !important;
+      left: 15px !important;
+      padding: 4px 10px !important;
+      /* The maximum allowed z-index in any web browser */
+      z-index: 2147483647 !important; 
+      /* Removes any parent animation bugs */
+      transform: none !important; 
+    }
+    
+    .goog-te-gadget-simple {
+      font-size: 14px !important;
+    }
+  }
+
+ /* =======================================================
+     THE GOOGLE TRANSLATE KILL-SWITCH (V3 - THE FINAL BOSS)
+  ======================================================== */
+  
+  /* 1. Google secretly targets the HTML tag. We block it here. */
+  html, html[style] {
+      margin-top: 0px !important;
+      padding-top: 0px !important;
+  }
+
+  /* 2. Block the Body tag just in case */
+  body, body[style] { 
+      top: 0px !important; 
+      position: relative !important;
+  }
+
+  /* 3. Nuke the iframe using every known Google class */
+  iframe.goog-te-banner-frame,
+  .goog-te-banner-frame,
+  .skiptranslate > iframe { 
+      display: none !important; 
+      opacity: 0 !important;
+      visibility: hidden !important;
+  } 
+
+  /* 4. Kill the hover popups */
+  #goog-gt-tt, 
+  .goog-te-balloon-frame { 
+      display: none !important; 
+  }
+  .goog-text-highlight { 
+      background-color: transparent !important; 
+      box-shadow: none !important; 
+  }
+
 </style>
 
 <div id="splash-screen">
@@ -125,10 +222,10 @@
   <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
   <a href="index.html" class="logo d-flex align-items-center" style="margin-left: -25px;">
-  <img src="assets/img/sachin_gold_logo2.jpg" alt="brand_logo" style="height: 100px; width: auto; margin-right: 15px;">
+  <img src="assets/img/sachin_gold_logo2.jpg" alt="brand_logo" style="height: 60px; max-height: none !important; width: auto; margin-right: 15px;">
   
   <img src="assets/img/sachin_gold_logo.png" alt="brand_logo" style="height: 50px; width: auto;">
-</a>
+  </a>
 
     <nav id="navmenu" class="navmenu">
       <ul>
@@ -178,33 +275,7 @@
 </header>
 
 
-<!-- /* Live Rate Card Bar */ -->
 
-<!-- <div class="rate-card-bar" style="background: #1a1a1a; border-top: 3px solid #d4af37; border-bottom: 1px solid #d4af37; padding: 12px 0;">
-  <div class="container">
-    <div class="d-flex align-items-center justify-content-center flex-wrap" style="color: #fff; font-family: 'Marcellus', serif;">
-      
-      <div class="me-4" style="font-size: 0.8rem; border-right: 1px solid rgba(255,255,255,0.2); padding-right: 20px;">
-        <span style="color: #28a745; margin-right: 5px;">●</span> 
-        LIVE RATES <br>
-        <small id="last-updated-time" style="opacity: 0.6;">Loading...</small>
-      </div>
-
-      <div class="rate-item me-5">
-        <span style="opacity: 0.9;">SOYA DOC (Normal):</span> 
-        <span id="rate-normal" style="font-weight: 700; color: #d4af37;">--</span>
-        <small style="font-size: 0.95rem; color: #fff;">47000/ MT</small>
-      </div>
-
-      <div class="rate-item">
-        <span style="opacity: 0.9;">SOYA DOC (High Pro):</span> 
-        <span id="rate-highpro" style="font-weight: 700; color: #d4af37;">--</span>
-        <small style="font-size: 0.95rem; color: #fff;">51200/ MT</small>
-      </div>
-
-    </div>
-  </div>
-</div> -->
 
 <style>
   /* Blinking dot animation */
@@ -301,6 +372,11 @@
       <span id="rate-acid" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
     </div>
 
+    <div class="ticker-item">
+      <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SOYA REFINED OIL:</span> 
+      <span id="rate-refined" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
+    </div>
+
     <!-- 6. Soya Lecithin -->
     <div class="ticker-item">
       <span style="font-weight: 400; font-size: 0.95rem; opacity: 0.9;">SOYA LECITHIN:</span> 
@@ -325,6 +401,13 @@
       <span id="rate-besan" style="font-weight: 700; color: #d4af37; font-size: 1.1rem; margin-left: 8px;">₹ --</span>
     </div>
 
+
+    <div class="ticker-item">
+      <span style="font-size: 0.9rem; color: rgba(255,255,255,0.7); font-style: italic;">
+        *All rates are indicative and subject to reconfirmation before booking.
+      </span>
+    </div>
+
   </div>
 </div>
 
@@ -345,7 +428,7 @@
 
 
          <div class="carousel-item">
-          <img src="assets/img/banner_new_img09.png" alt="Agro Commodity Trading">
+          <img src="assets/img/agro_comm_trading_main.jpg" alt="Agro Commodity Trading">
           <div class="carousel-container">
             <h2>Your Trusted Partner in Bulk Agro Commodity Trading</h2>
             <p>With decades of market expertise, we handle high-volume procurement and distribution of premium grains, pulses, and oilseeds, ensuring competitive pricing and seamless supply chain solutions.</p>
@@ -353,7 +436,7 @@
         </div><!-- End Carousel Item -->
 
         <div class="carousel-item">
-          <img src="assets/img/banner_new_img02.png" alt="">
+          <img src="assets/img/dal_plat_banner.jpeg" alt="">
           <div class="carousel-container">
             <h2>Our distribution network reaches 1,000+ retail stores</h2>
             <p>Our processing facility is equipped with a capacity of 550 tonnes per day, combining traditional sun-drying methods with the world's most advanced Buhler machinery.</p>
@@ -362,7 +445,7 @@
 
 
       <div class="carousel-item">
-          <img src="assets/img/banner_new_img8.jpg" alt="Oil Seed Extraction Facility">
+          <img src="assets/img/oil_extraction_banner.jpg" alt="Oil Seed Extraction Facility">
           <div class="carousel-container">
             <h2>High-Efficiency Soya Extraction & Refining</h2>
             <p>Our advanced extraction facility transforms premium soya beans into high-yield, top-tier commodities, carefully preserving their peak nutritional and industrial value.</p>
@@ -378,7 +461,7 @@
         </div><!-- End Carousel Item -->
 
         <div class="carousel-item">
-          <img src="assets/img/banner_new_img.jpg" alt="Cold Storage Facility">
+          <img src="assets/img/cold_storage_banner1.png" alt="Cold Storage Facility">
           <div class="carousel-container">
             <h2>Advanced Climate-Controlled Cold Storage</h2>
             <p>Equipped with precision temperature management to protect sensitive agro-commodities, extend shelf life, and minimize post-harvest losses for our partners.</p>
@@ -420,16 +503,19 @@
 
   
   <!-- Services Section -->
-    <section id="products" class="products section" style="background-color: #fcfcfc; padding: 80px 0;">
+  <section id="products" class="products section" style="background-color: #fcfcfc; padding: 80px 0;">
 
-    <div class="container section-title text-center mb-5" data-aos="fade-up">
-      <h1 style="font-family: 'Marcellus', serif; color: #1a1a1a; font-weight: 700;">OUR PRODUCTS</h1>
-      <p style="color: #666; font-size: 1.1rem;">Straight from the Soil to Your Storefront.</p>
-      <div style="height: 3px; background: #d4af37; width: 60px; margin: 15px auto 0;"></div>
-    </div>
+      <div class="container section-title text-center mb-5" data-aos="fade-up">
+        <img src="assets/img/sachin_gold_logo2.jpg" alt="Sachin Gold Icon" style="height: 90px; width: auto; margin-bottom: 20px;">
+        
+        <h1 style="font-family: 'Marcellus', serif; color: #1a1a1a; font-weight: 700;">OUR PRODUCTS</h1>
+        <p style="color: #666; font-size: 1.1rem;">Straight from the Soil to Your Storefront.</p>
+        <div style="height: 3px; background: #d4af37; width: 60px; margin: 15px auto 0;"></div>
+      </div>
 
-  <div class="container">
-    <div class="row g-4 justify-content-center">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+...
 
       <div class="col-lg-3 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="100">
         <a href="commodity-trading.html" target="_blank" rel="noopener noreferrer" class="premium-product-link">
@@ -693,7 +779,7 @@
                     <h2 class="service-item-title" style="font-size: 20px;">Agro Commodity Trading</h2>
                   </a>
                 </div>
-                <img src="assets/img/commodity_trading.jpg" alt="Image" class="img-fluid" 
+                <img src="assets/img/agro_comm_trading_main.jpg" alt="Image" class="img-fluid" 
                    style="width: 100%; height: 250px; object-fit: cover; object-position: center; margin-top: 15px; border-radius: 5px;">
                 </div>
              </div>
@@ -706,7 +792,7 @@
                       <h2 class="service-item-title" style="font-size: 20px;">Pulses & Gram Flour Processing Unit</h2>
                     </a>
                   </div>
-                  <img src="assets/img/service_img_2.jpg" alt="Image" class="img-fluid"
+                  <img src="assets/img/pulses_unit.png" alt="Image" class="img-fluid"
                     style="width: 100%; height: 250px; object-fit: cover; object-position: center; margin-top: 15px; border-radius: 5px;">
                 </div>
               </div>
@@ -718,7 +804,7 @@
                       <h2 class="service-item-title" style="font-size: 20px;">Oil Seed Extraction</h2>
                     </a>
                   </div>
-                  <img src="assets/img/service_img_3.jpg" alt="Image" class="img-fluid"
+                  <img src="assets/img/oil_extraction_banner2.jpg" alt="Image" class="img-fluid"
                     style="width: 100%; height: 250px; object-fit: cover; object-position: center; margin-top: 15px; border-radius: 5px;">
                 </div>
               </div>
@@ -731,7 +817,7 @@
                       <h2 class="service-item-title" style="font-size: 20px;">Cold Storage’s</h2>
                     </a>
                   </div>
-                  <img src="assets/img/service_img_4.jpg" alt="Image" class="img-fluid"
+                  <img src="assets/img/cold_storage_banner_below.jpg" alt="Image" class="img-fluid"
                     style="width: 100%; height: 250px; object-fit: cover; object-position: center; margin-top: 15px; border-radius: 5px;" >
                 </div>
               </div>
@@ -875,13 +961,64 @@
 </a>
 
 
+<div class="floating-translate">
+  <div id="google_translate_element"></div>
+</div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,mr,hi,kn,te,ml', 
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // This watches the entire website in real-time. If Google tries to change 
+    // the margins or drop a banner, this script instantly reverses it.
+    const observer = new MutationObserver(function() {
+      
+      // 1. Force HTML Margin to 0
+      if (document.documentElement.style.marginTop !== '0px') {
+        document.documentElement.style.marginTop = '0px';
+      }
+      
+      // 2. Force Body Top to 0
+      if (document.body.style.top !== '0px') {
+        document.body.style.top = '0px';
+      }
+      
+      // 3. Find the Google Banner and destroy its display
+      const banner = document.querySelector('.goog-te-banner-frame');
+      if (banner && banner.style.display !== 'none') {
+        banner.style.display = 'none';
+      }
+    });
+
+    // Start watching the HTML and Body tags for unauthorized style changes
+    observer.observe(document.documentElement, {
+      attributes: true,
+      childList: true,
+      subtree: true,
+      attributeFilter: ['style']
+    });
+  });
+</script>
+
+
 
 <!-- /* Dynamic rate card  */ -->
 
 
 <script>
 async function updateLiveRates() {
-  const apiURL = "https://sheetdb.io/api/v1/ppcjhx23tkigr";
+  const apiURL = "https://sheetdb.io/api/v1/1izbbrwr43edy";
 
   try {
     const response = await fetch(`${apiURL}?cache_bust=${new Date().getTime()}`);
@@ -914,6 +1051,7 @@ async function updateLiveRates() {
         updateTile('rate-oil', 'oil');
         updateTile('rate-fatty', 'fatty'); // Replaced sunflower
         updateTile('rate-acid', 'acid');   // Replaced cotton
+        updateTile('rate-refined', 'refined'); // New Refined Oil!
         updateTile('rate-lecithin', 'lecithin');
         updateTile('rate-toor', 'toor');
         updateTile('rate-chana', 'chana');
@@ -949,6 +1087,19 @@ async function updateLiveRates() {
 document.addEventListener('DOMContentLoaded', updateLiveRates);
 </script>
 
+<!-- For mobile friendly translator button placement -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      // 1. Find the translator button
+      var translatorBtn = document.querySelector('.floating-translate');
+      
+      // 2. If it is trapped inside a section/div, rip it out and put it directly in the body
+      if (translatorBtn && translatorBtn.parentNode !== document.body) {
+          document.body.appendChild(translatorBtn);
+      }
+  });
+</script>
   
 
 </body>

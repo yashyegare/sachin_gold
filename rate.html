@@ -144,10 +144,13 @@
 
     <section id="rates" class="section">
       <div class="container text-center mb-5" data-aos="fade-up">
-        <h2>Current Market Rates</h2>
-        <p id="last-updated-time" class="blink" style="color: #d4af37; font-weight: 700; font-size: 1.1rem; text-transform: uppercase;">
-        Loading live prices...
-        </p>
+      <img src="assets/img/sachin_gold_logo2.jpg" alt="Sachin Gold Logo" style="height: 80px; max-height: none !important; width: auto; margin-bottom: 20px;">
+      
+      <h2>Current Market Rates*</h2>
+      <p id="last-updated-time" class="blink" style="color: #d4af37; font-weight: 700; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 5px;">
+      Loading live prices...
+      </p>
+      <p style="color: #666; font-size: 0.9rem; font-style: italic;">*All rates are indicative and subject to final reconfirmation before booking.</p>
       </div>
 
     <div class="container">
@@ -198,6 +201,15 @@
         </div>
       </div>
 
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+        <div class="rate-card p-4 bg-white text-center">
+          <div class="product-icon"><i class="bi bi-droplet-fill"></i></div>
+          <h3>SOYA REFINED OIL</h3>
+          <h2 id="rate-refined" style="color: #1a6d42;">₹ 00,000</h2>
+          <p class="text-muted">Per 10kg<br><small>Premium Grade</small></p>
+        </div>
+      </div>
+
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
         <div class="rate-card p-4 bg-white text-center">
           <div class="product-icon"><i class="bi bi-box-seam"></i></div>
@@ -217,7 +229,7 @@
 
      <section id="dals" class="section py-5" style="background-color: #f9f9f9;">
     <div class="container text-center mb-5" data-aos="fade-up">
-      <h2 style="font-family: 'Marcellus', serif; color: #1a1a1a;">Dals & Flour Rates</h2>
+      <h2 style="font-family: 'Marcellus', serif; color: #1a1a1a;">Dals & Flour Rates*</h2>
       <div style="height: 2px; background: #d4af37; width: 100px; margin: 10px auto;"></div>
     </div>
 
@@ -582,7 +594,7 @@
 <script>
 async function updateLiveRates() {
   // Ensure this ID matches the SheetDB API for your rates.html data
-  const apiURL = "https://sheetdb.io/api/v1/ppcjhx23tkigr";
+  const apiURL = "https://sheetdb.io/api/v1/1izbbrwr43edy";
 
   try {
     const response = await fetch(`${apiURL}?cache_bust=${new Date().getTime()}`);
@@ -614,6 +626,7 @@ async function updateLiveRates() {
         updateTile('rate-oil', 'oil');
         updateTile('rate-fatty', 'fatty'); // Replaced sunflower
         updateTile('rate-acid', 'acid');   // Replaced cotton
+        updateTile('rate-refined', 'refined');
         updateTile('rate-lecithin', 'lecithin');
         updateTile('rate-toor', 'toor');
         updateTile('rate-chana', 'chana');
