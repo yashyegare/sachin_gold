@@ -1141,7 +1141,6 @@ document.addEventListener('DOMContentLoaded', updateLiveRates);
 </script>
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1161,10 +1160,58 @@ document.addEventListener('DOMContentLoaded', updateLiveRates);
     "@type": "OfferCatalog",
     "name": "Agro Commodities",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Toor Dal" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Chana Dal" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Besan" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Soya DOC (Cake)" } }
+      { 
+        "@type": "Offer", 
+        "itemOffered": { 
+          "@type": "Product", 
+          "name": "Toor Dal",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "url": "https://sachingold.com/"
+          }
+        } 
+      },
+      { 
+        "@type": "Offer", 
+        "itemOffered": { 
+          "@type": "Product", 
+          "name": "Chana Dal",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "url": "https://sachingold.com/"
+          }
+        } 
+      },
+      { 
+        "@type": "Offer", 
+        "itemOffered": { 
+          "@type": "Product", 
+          "name": "Besan",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "url": "https://sachingold.com/"
+          }
+        } 
+      },
+      { 
+        "@type": "Offer", 
+        "itemOffered": { 
+          "@type": "Product", 
+          "name": "Soya DOC (Cake)",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "url": "https://sachingold.com/"
+          }
+        } 
+      }
     ]
   }
 }
