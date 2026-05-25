@@ -533,6 +533,42 @@
     <span>Chat with us</span>
 </a>
 
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,mr,hi,kn,te,ta', 
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+
+  // --- THE "MEMORY" SCRIPT ---
+  // This forces Google Translate to remember the chosen language across pages
+  document.addEventListener("DOMContentLoaded", function() {
+    // Check if the user already selected a language in a previous page
+    let langCookie = document.cookie.split('; ').find(row => row.startsWith('googtrans='));
+    
+    // If they did, ensure it is applied to this page too
+    if (langCookie) {
+      let langValue = langCookie.split('=')[1];
+      // Sometimes it is stored as "/en/mr", we just want the "mr"
+      let selectedLang = langValue.split('/')[2] || langValue;
+      
+      // If it's not English, trigger the translation
+      if (selectedLang !== 'en') {
+        let selectField = document.querySelector(".goog-te-combo");
+        if (selectField) {
+          selectField.value = selectedLang;
+          selectField.dispatchEvent(new Event("change"));
+        }
+      }
+    }
+  });
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 
 </html>
